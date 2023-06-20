@@ -6,8 +6,8 @@ User->(login)
 User-->(create profile)
 User-->(edit profile)
 User-->(add new vehicle)
-
-User--->(logout)
 User-->(edit vehicle)
+User--->(logout)
+
 
 @enduml
