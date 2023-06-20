@@ -1,0 +1,13 @@
+@startuml
+actor User
+User->(login)
+(login)->(check registered user)
+(login)->(check password)
+User-->(create profile)
+User-->(edit profile)
+User-->(add new vehicle)
+
+User--->(logout)
+User-->(edit vehicle)
+
+@enduml
