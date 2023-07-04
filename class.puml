@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Login
+{
+    +String user_name
+    #String password
+    +login()
+    +register_page_redirect()
+    -forgot_password()
+    -third_party_sign_up()
+}
+
+class User_register
+{
+    +String user_name
+    #String password
+    #String re_type_password
+    +register_user()
+}
+class User
+{
+    -String user_name
+    -String driver_licence_exp_date
+    +edit_user_info()
+}
+
+class Vehicle
+{
+    +String vehicle_name
+    +String itp_exp_date
+    +String rca_exp_date
+    +String next_service_date
+    +Int next_service_km
+    +String vignette_exp_date
+    +add_new_vehicle()
+    +update_vehicle_name()
+    +uodate_itp()
+    +update_rca()
+    +update_service_date()
+    +update_service_km()
+    +delete_vehicle()
+ }
+ Login-> User_register
+ Login --> "1" User
+
+ User "1" *--"many" Vehicle
+
+
+
+@enduml

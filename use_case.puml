@@ -1,11 +1,13 @@
 @startuml
 actor User
-User->(login)
-(login)->(check registered user)
-(login)->(check password)
+User->landingPage
+landingPage->(show login form)
+(show login form)->(check registered user)
+(show login form)->(check password)
 User-->(create profile)
 User-->(edit profile)
-User-->(add new vehicle)
+User-->(show add new vehicle form):click \nadd new button
+
 User-->(edit vehicle)
 User--->(logout)
 
