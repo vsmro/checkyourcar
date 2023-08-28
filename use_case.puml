@@ -1,15 +1,41 @@
 @startuml
 actor User
-User->landingPage
-landingPage->(show login form)
-(show login form)->(check registered user)
-(show login form)->(check password)
-User-->(create profile)
-User-->(edit profile)
-User-->(show add new vehicle form):click \nadd new button
 
-User-->(edit vehicle)
-User--->(logout)
+User->(landingPage)
+(landingPage)-->(Login form)
+(Login form)--(Login)
+
+(Login)..>(Verify user \nand \npassword):<<include>>
+(Login)<..(Display login error):<<extend>>
+(Login form)--(Register page)
+(Register page)<..(User name \nand \npassword \ndetails) :<<include>>
+(Register page)<.(Check Password lenght) :<<extend>>
+(Login)--(Loged in)
+(Loged in)<.(Show Dashboard)
+(Show Dashboard)<..(User section):<<include>>
+(Show Dashboard)<..(Driver section):<<include>>
+(Show Dashboard)<..(Vehicle section):<<include>>
+(Show Dashboard)<..(Garage):<<include>>
+(User section)<..(Change \nuser name \nor\npassword):<<extend>>
+(Driver section)<..(Add new \n driver)
+(Add new \n driver)<.(Add new vehicle_category \nand  \nexp_date) :<<include>>
+(Add new \n driver)--(Save driver)
+(Vehicle section)<..(Add new vehicle)
+(Add new vehicle)<..(Add new auto)
+(Add new auto)<..(Show new auto form) :<<include>>
+(Add new vehicle)<..(Add new moto)
+(Add new moto)<..(Show new moto form):<<include>>
+(Add new vehicle)<..(Add new trailer)
+(Add new trailer)<..(Show new trailer form):<<include>>
+(Add new vehicle)<.(Save vehicle)
+(Garage)<.(Show message: \nno vehicle saved):<<extend>>
+(Garage)<..(Show saved vehicles):<<include>>
+
+
+(Login form)--(Reset password)
+
+(Reset password)<..(Send reset link \non the users email):<<include>>
+User-->(Logout)
 
 
 @enduml
