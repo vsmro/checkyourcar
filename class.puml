@@ -91,7 +91,7 @@ class Password
 class Check_box
 {
 }
-class Remembe_me_option
+class Remember_me_option
 {
 }
 
@@ -105,7 +105,7 @@ class Signup_link
 
 Login_form -- Input_field
 Login_form -- Password
-Login_form -- Remembe_me_option
+Login_form -- Remember_me_option
 Login_form -- Check_box
 Login_form -- Signup_link
 Login_form -- Login_button
