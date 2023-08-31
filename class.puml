@@ -1,85 +1,114 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-class Login
+'class Login
+'{
+'login()
+'check_user_password()
+'forget_password()
+'}
+'Login "1" *-- "1" User
+'class User
+'{
+'user_name
+'password
+'
+'new_user()
+'update_user()
+'delete_user()
+'}
+'
+'class Driver
+'{
+'name
+'vehicle_category
+'exp_date
+'new_driver()
+'update_driver()
+'delete_driver()
+'}
+'User "1" *-- "1" Driver
+'
+'
+'
+'
+'class Vehicle
+'{
+'no_plate
+'vin
+'brand
+'model
+'year
+'new_vehicle()
+'update_vehicle()
+'delete_vehicle()
+'}
+'Driver "1" *-- "many" Vehicle
+'
+'class Auto
+'{
+'dashboard_km
+'}
+'Vehicle *-- Auto
+'
+'Class Moto
+'{
+'dashboard_km
+'}
+'Vehicle *-- Moto
+'
+'class Trailer
+'{
+'}
+'Vehicle *-- Trailer
+'class Maintenance
+'{
+' to_be_continued
+'}
+
+'Auto "1" *-- "1" Maintenance
+'Moto "1" *-- "1" Maintenance
+'Trailer "1" *-- "1" Maintenance
+'
+'class Garage {
+'
+'
+'}
+
+class Login_form
 {
-login()
-check_user_passwor()
-forget_password()
-}
-Login "1" *-- "1" User
-class User
-{
-user_name
-password
-
-new_user()
-update_user()
-delete_user()
 }
 
-class Driver
-{
-name
-vehicle_category
-exp_date
-new_driver()
-update_driver()
-delete_driver()
-}
-User "1" *-- "1" Driver
-
-
-
-
-class Vehicle
-{
-no_plate
-vin
-brand
-model
-year
-new_vehicle()
-update_vehicle()
-delete_vehicle()
-}
-Driver "1" *-- "many" Vehicle
-
-class Auto
-{
-dashboard_km
-}
-Vehicle *-- Auto
-
-Class Moto
-{
-dashboard_km
-}
-Vehicle *-- Moto
-
-class Trailer
+class Input_field
 {
 }
-Vehicle *-- Trailer
-class Maintenance
+
+
+
+class Password
 {
- to_be_continued
+}
+class Check_box
+{
+}
+class Remembe_me_option
+{
 }
 
-Auto "1" *-- "1" Maintenance
-Moto "1" *-- "1" Maintenance
-Trailer "1" *-- "1" Maintenance
-
-class Garage {
-
-
+class Login_button
+{
 }
 
+class Signup_link
+{
+}
 
-
-
-
-
+Login_form -- Input_field
+Login_form -- Password
+Login_form -- Remembe_me_option
+Login_form -- Check_box
+Login_form -- Signup_link
+Login_form -- Login_button
 
 
 
